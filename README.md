@@ -15,16 +15,17 @@ $ yarn add @renatodeleao/vue-sticky-directive
 // register globally
 import VueStickyDirective from '@renatodeleao/vue-sticky-directive'
 Vue.use(VueStickyDirective)
+// by default exposes v-sticky directive namespace
 
 // at a component (recommended)
 import VueStickyDirective from '@renatodeleao/vue-sticky-directive'
 
 export default {
   name: "component-name"
-  // by default exposes v-sticky directive namespace
-  directives: {VueStickyDirective}
+  directives: {
+    "sticky": VueStickyDirective
+  }
 }
-
 // or using custom namespace
   directives: {
     "my-sticky": VueStickyDirective // exposes v-my-sticky directive namespace
