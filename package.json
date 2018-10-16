@@ -1,6 +1,6 @@
 {
   "name": "@renatodeleao/vue-sticky-directive",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Vue directive wrapping https://github.com/abouolia/sticky-sidebar to make smart and high performance sticky components",
   "main": "dist/vue-sticky-directive.cjs.js",
   "module": "dist/vue-sticky-directive.esm.js",
