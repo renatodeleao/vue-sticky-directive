@@ -11,6 +11,8 @@ $ yarn add @renatodeleao/vue-sticky-directive
 ```
 
 ## Usage
+⚠️ hands on code people: [codesandbox demo](https://codesandbox.io/s/mm4olmxkrx)
+
 ```javascript
 // register globally
 import VueStickyDirective from '@renatodeleao/vue-sticky-directive'
