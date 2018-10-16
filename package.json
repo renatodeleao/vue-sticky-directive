@@ -1,0 +1,59 @@
+{
+  "name": "@renatodeleao/vue-sticky-directive",
+  "version": "0.1.0",
+  "description": "A Vue directive wrapping https://github.com/abouolia/sticky-sidebar to make smart and high performance sticky components",
+  "main": "dist/vue-sticky-directive.cjs.js",
+  "module": "dist/vue-sticky-directive.esm.js",
+  "browser": "dist/vue-sticky-directive.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "parcel": "parcel examples/index.html --out-dir public",
+    "start": "npm run dev && npm run parcel",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "dependencies": {
+    "sticky-sidebar": "git+https://github.com/abouolia/sticky-sidebar.git#master"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@vue/component-compiler-utils": "^2.2.0",
+    "parcel-bundler": "^1.10.3",
+    "rollup": "^0.66.0",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "sass": "^1.14.2",
+    "vue": "^2.5.17",
+    "vue-hot-reload-api": "^2.3.1",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatodeleao/v-sticky.git"
+  },
+  "keywords": [
+    "vue",
+    "sticky",
+    "affix",
+    "directive",
+    "js",
+    "stickySidebar"
+  ],
+  "author": "Renato de Leão <renatodeleao@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renatodeleao/v-sticky/issues"
+  },
+  "homepage": "https://github.com/renatodeleao/v-sticky#readme",
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.esm.js"
+  }
+}
