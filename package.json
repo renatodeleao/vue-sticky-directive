@@ -13,7 +13,8 @@
     "parcel": "parcel examples/index.html --out-dir public",
     "start": "npm run dev && npm run parcel",
     "test": "node test/test.js",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "deploy:examples": "parcel build examples/index.html --out-dir public --public-url ./ && node deploy.js"
   },
   "dependencies": {
     "resize-sensor": "0.0.6",
@@ -24,6 +25,7 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.1.0",
     "@vue/component-compiler-utils": "^2.2.0",
+    "gh-pages": "^2.0.1",
     "github-markdown-css": "^2.10.0",
     "lodash.debounce": "^4.0.8",
     "parcel-bundler": "^1.10.3",
