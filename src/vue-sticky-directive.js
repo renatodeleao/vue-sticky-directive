@@ -23,7 +23,7 @@ const VueStickyDirective = () => {
     "affix.unbottom.stickySidebar": "affix-unbottom",
     "affixed.unbottom.stickySidebar": "affixed-unbottom",
     "affix.static.stickySidebar": "affix-static",
-    "affixex.static.stickySidebar": "affixed-static"
+    "affixed.static.stickySidebar": "affixed-static"
   };
 
   /**
