@@ -23,7 +23,7 @@ const VueStickyDirective = () => {
     "affix.unbottom.stickySidebar": "affix-unbottom",
     "affixed.unbottom.stickySidebar": "affixed-unbottom",
     "affix.static.stickySidebar": "affix-static",
-    "affixex.static.stickySidebar": "affixed-static"
+    "affixed.static.stickySidebar": "affixed-static"
   };
 
   /**
@@ -66,27 +66,37 @@ const VueStickyDirective = () => {
    */
   let handleEventsReference;
 
+  /**
+   * mergeOptions with type verification and fallback to current options
+   * @param {*} oldOpts
+   * @param {*} newOpts
+   */
+  const mergeOptions = (oldOpts, newOpts) => {
+    if (
+      typeof newOpts === "undefined" ||
+      typeof newOpts === "object"
+    ) {
+      return { ...oldOpts, ...newOpts };
+    } else {
+      console.warn("v-sticky binding must be an object, 'fallbacking' to previous option set");
+      return oldOpts;
+    }
+  }
+
   return {
     inserted(el, binding, vnode) {
-      if (
-        typeof binding.value === "undefined" ||
-        typeof binding.value === "object"
-      ) {
-        let opts = { ...DEFAULTS, ...binding.value };
-        vnode.context.$nextTick(() => {
-          el[NS] = new StickySidebar(el, opts);
+      let opts = mergeOptions(DEFAULTS, binding.value)
+      vnode.context.$nextTick(() => {
+        el[NS] = new StickySidebar(el, opts);
 
-          handleEventsReference = function(e) {
-            handleEvents(e, vnode);
-          };
+        handleEventsReference = function(e) {
+          handleEvents(e, vnode);
+        };
 
-          Object.keys(EVENT_NAMES_MAP).map(function(evtName) {
-            el.addEventListener(evtName, handleEventsReference);
-          });
+        Object.keys(EVENT_NAMES_MAP).map(function(evtName) {
+          el.addEventListener(evtName, handleEventsReference);
         });
-      } else {
-        throw new Error("v-sticky binding must be an object");
-      }
+      });
     },
     unbind(el, binding, vnode) {
       if (el[NS]) {
@@ -99,13 +109,10 @@ const VueStickyDirective = () => {
     },
     update(el, binding, vnode) {
       if (binding.value === binding.oldValue) return;
-      // i don't like this either but there's no public method
-      // to updated options alternative, destroy() and init again
-      el[NS].options = { ...DEFAULTS, ...binding.value };
+      el[NS].options = mergeOptions(el[NS].options, binding.value);
       el[NS].updateSticky();
     },
     componentUpdated(el, binding, vnode) {
-      // all children updated
       if (el[NS]) {
         el[NS].updateSticky();
       }
