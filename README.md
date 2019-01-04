@@ -1,6 +1,3 @@
-# Vue Sticky Directive
-A Vue directive wrapping [Abouolia's stickySidebar plugin]( https://github.com/abouolia/sticky-sidebar) to make smart and high performance sticky components.
-
 ## Installation
 ```bash
 $ npm install @renatodeleao/vue-sticky-directive
@@ -13,34 +10,35 @@ $ yarn add @renatodeleao/vue-sticky-directive
 ## Usage
 ⚠️ hands on code people: [codesandbox demo](https://codesandbox.io/s/mm4olmxkrx)
 
+#### Global register
 ```javascript
-// register globally
 import VueStickyDirective from '@renatodeleao/vue-sticky-directive'
 Vue.use(VueStickyDirective)
 // by default exposes v-sticky directive namespace
+```
 
-// at a component (recommended)
+#### Component register (recommended)
+```javascript
 import VueStickyDirective from '@renatodeleao/vue-sticky-directive'
 
 export default {
-  name: "component-name"
+  name: "your-component-name",
+  /**
+   * You can use alternative namespace instad of "sticky" here
+   */
   directives: {
     "sticky": VueStickyDirective
   }
 }
-// or using custom namespace
-  directives: {
-    "my-sticky": VueStickyDirective // exposes v-my-sticky directive namespace
-  }
 ```
 
 #### Recommended Markup
 ```HTML
-<!--sticky container-->
+<!--sticky container (optional) -->
 <div data-v-sticky-container>
   <!-- the actual sticky element -->
   <div v-sticky>
-    <!-- where plugin applies transforms -->
+    <!-- where plugin applies transforms (optional) -->
     <div data-v-sticky-inner>
   </div>
 </div>
@@ -66,7 +64,7 @@ Same options as [original plugin](https://abouolia.github.io/sticky-sidebar/#opt
   bottomSpacing: 0,
   containerSelector: "[data-v-sticky-container]",
   innerWrapperSelector: "[data-v-sticky-inner]",
-  resizeSensor: true,
+  resizeSensor: true, // [1] read above
   stickyClass: "is-affixed",
   minWidth: 0
 };
@@ -98,7 +96,7 @@ And should be passed to the `v-sticky` directive binding value.
 </script>
 ```
 
-Note: do-not use `:v-sticky` to bind values, it's not the way directives work.
+<small>Note: do-not use `:v-sticky` to bind values, it's not the way directives work.</small>
 
 ## Events
 Same events as [original plugin](https://abouolia.github.io/sticky-sidebar/#events) and are available using the standard Vue `v-on:event-name` or `@event-name` notation. The event emits an `Object` containing `evtName` and `vnode` allowing access for custom manipulation (ex: adding a specific class).
@@ -160,7 +158,7 @@ I didn't kept Aboulia's original name, because you can make any type of sticky e
 
 Special thanks to [@abouolia](https://github.com/abouolia/) for taking time to develop this, and to [@mehwww](https://github.com/mehwww/) to point me the way to build this wrapper.
 
-### Other sticky libraries
+## Other sticky libraries
 - [@mehwww](https://github.com/mehwww/) has [lightweight sticky directive](https://www.npmjs.com/package/vue-sticky-directive)
 
 ## License
