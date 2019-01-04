@@ -21,9 +21,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.1.0",
     "@vue/component-compiler-utils": "^2.2.0",
+    "github-markdown-css": "^2.10.0",
+    "lodash.debounce": "^4.0.8",
     "parcel-bundler": "^1.10.3",
+    "parcel-plugin-clean-dist": "0.0.6",
+    "prismjs": "^1.15.0",
     "rollup": "^0.66.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.1.0",
@@ -33,6 +38,7 @@
     "sass": "^1.14.2",
     "vue": "^2.5.17",
     "vue-hot-reload-api": "^2.3.1",
+    "vue-markdown": "^2.2.4",
     "vue-template-compiler": "^2.5.17"
   },
   "repository": {
@@ -55,5 +61,8 @@
   "homepage": "https://github.com/renatodeleao/v-sticky#readme",
   "alias": {
     "vue": "./node_modules/vue/dist/vue.esm.js"
+  },
+  "posthtml": {
+    "recognizeSelfClosing": true
   }
 }
