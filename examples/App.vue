@@ -159,7 +159,7 @@ $gutter: 32px;
 }
   .o-wrapper{
     width: 100%;
-    max-width: 1280px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 16px;
   }
@@ -190,7 +190,6 @@ $gutter: 32px;
     background: #202020;
     color: whitesmoke;
     padding: 48px;
-    height: 240px;
     display: flex;
     margin-bottom: 48px;
 
