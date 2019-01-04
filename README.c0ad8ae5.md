@@ -8,6 +8,7 @@ $ yarn add @renatodeleao/vue-sticky-directive
 ```
 
 ## Usage
+👁 [Docs + Example](https://renatodeleao.github.io/vue-sticky-directive/)
 ⚠️ hands on code people: [codesandbox demo](https://codesandbox.io/s/mm4olmxkrx)
 
 #### Global register
@@ -24,7 +25,7 @@ import VueStickyDirective from '@renatodeleao/vue-sticky-directive'
 export default {
   name: "your-component-name",
   /**
-   * You can use alternative namespace instad of "sticky" here
+   * You can use alternative namespace instead of "sticky" here
    */
   directives: {
     "sticky": VueStickyDirective
@@ -35,15 +36,15 @@ export default {
 #### Recommended Markup
 ```HTML
 <!--sticky container (optional) -->
-<div data-v-sticky-container>
+<div class="your-container-class" data-v-sticky-container>
   <!-- the actual sticky element -->
-  <div v-sticky>
+  <div class="your-sidebar-class" v-sticky>
     <!-- where plugin applies transforms (optional) -->
-    <div data-v-sticky-inner>
+    <div class="your-sidebar-inner-class" data-v-sticky-inner>
   </div>
 </div>
 ```
-Note that `[data-v-sticky-container]` and `[data-v-sticky-inner]` are optional attributes. The first specify the `containerSelector`container to limit the begin and end points of sticky element,it defaults to closest parent if not present. The letter defines `innerWrapperSelector` of sticky sidebar, if this wrapper is not found inside `v-sticky`  element, the plugin will create one for you under class name `inner-wrapper-sticky`
+<small>Note that `[data-v-sticky-container]` and `[data-v-sticky-inner]` are optional attributes. The first specify the `containerSelector`, boundary element to limit the begin and end points of sticky element. It defaults to closest parent if not present. The latter defines `innerWrapperSelector` of sticky sidebar, if this wrapper is not found inside `v-sticky` element, the plugin will create one for you under class name `inner-wrapper-sticky`. It's recommended element to apply your CSS styles.</small>
 
 #### ResizeSensor (Highly Recommended)
 I've (maybe naively) included ResizeSensor as a dependency of this package, albeight it's usage is optional. Note that by default, this plugin only re-calculates at `window.resize`. At original plugin's documentation, resizeSensor usage is also recommended. The the thing is, if you don't include this, you have to manually detect parent and el resizes and call `this.el._stickySidebar.updateSticky()` yourself or dispatching dom `resize` events yourself, because at the time of mounting the directive, your parent container might be still loading content or other nested components might not have mounted yet, therefore at the computed height at that time might be wrong.
