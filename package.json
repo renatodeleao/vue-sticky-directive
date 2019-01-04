@@ -16,6 +16,7 @@
     "pretest": "npm run build"
   },
   "dependencies": {
+    "resize-sensor": "0.0.6",
     "sticky-sidebar": "git+https://github.com/abouolia/sticky-sidebar.git#master"
   },
   "devDependencies": {
