@@ -12,7 +12,7 @@ export default [
 	{
 		input: 'src/index.js',
 		output: {
-			name: 'VStickyDirective',
+			name: 'VueStickyDirective',
 			file: pkg.browser,
 			format: 'umd'
 		},
@@ -38,8 +38,8 @@ export default [
 	{
 		input: 'src/index.js',
 		output: [
-			{ file: pkg.main, format: 'cjs' },
 			{ file: pkg.module, format: 'es' }
-		]
+		],
+		external: ['sticky-sidebar']
 	}
 ];
