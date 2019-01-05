@@ -1,7 +1,7 @@
 <template>
   <div class="o-wrapper">
     <header class="c-hero">
-      <h1>Vue Sticky Directive — <span>A Vue directive wrapping @bouolia's sticky-sidebar to make smart and high performance sticky components</span></h1>
+      <h1>Vue Sticky Directive — <span>A Vue directive wrapping <a href="https://abouolia.github.io/sticky-sidebar/" target="_blank">@abouolia's sticky-sidebar</a> to make smart and high performance sticky components</span></h1>
     </header>
     <div class="o-grid _container" data-v-sticky-container>
       <div class="o-grid__el o-grid__aside">

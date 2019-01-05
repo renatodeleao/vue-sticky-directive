@@ -63,3 +63,6 @@ typings/
 # Demo build
 public/
 .cache/
+
+# mac
+.DS_Store

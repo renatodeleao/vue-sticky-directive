@@ -29,7 +29,7 @@
     "github-markdown-css": "^2.10.0",
     "lodash.debounce": "^4.0.8",
     "parcel-bundler": "^1.10.3",
-    "parcel-plugin-clean-dist": "0.0.6",
+    "parcel-plugin-clean-easy": "^1.0.2",
     "prismjs": "^1.15.0",
     "rollup": "^0.66.0",
     "rollup-plugin-babel": "^4.0.3",
@@ -45,7 +45,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/renatodeleao/v-sticky.git"
+    "url": "git+https://github.com/renatodeleao/vue-sticky-directive.git"
   },
   "keywords": [
     "vue",
@@ -58,13 +58,16 @@
   "author": "Renato de Leão <renatodeleao@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/renatodeleao/v-sticky/issues"
+    "url": "https://github.com/renatodeleao/vue-sticky-directive/issues"
   },
-  "homepage": "https://github.com/renatodeleao/v-sticky#readme",
+  "homepage": "https://github.com/renatodeleao/vue-sticky-directive#readme",
   "alias": {
     "vue": "./node_modules/vue/dist/vue.esm.js"
   },
   "posthtml": {
     "recognizeSelfClosing": true
-  }
+  },
+  "parcelCleanPaths": [
+    "public/*.*"
+  ]
 }
