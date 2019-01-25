@@ -6,7 +6,7 @@ const VueStickyDirective = () => {
   const DEFAULTS = {
     topSpacing: 0,
     bottomSpacing: 0,
-    containerSelector: "[data-v-sticky-container]",
+    containerSelector: false,
     innerWrapperSelector: "[data-v-sticky-inner]",
     resizeSensor: true,
     stickyClass: "is-affixed",
